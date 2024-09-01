@@ -189,29 +189,4 @@
         $('.info-email-amal').attr('href', 'mailto:' + email_amal).html(email_amal_username + "@" + domain);
         $('.info-email-abhi').attr('href', 'mailto:' + email_abhi).html(email_abhi_username + "@" + domain);
     });
-
-
-
-
-    /*$(document).ready(function() {
-        var amalUser = "amal";
-        var amalDomain = "cinezapiens.com";
-        var amalEmail = amalUser + "@" + amalDomain;
-        var amalEncoded = {
-            user: amalUser.split('').map(function(c) { return '&#' + c.charCodeAt(0) + ';'; }).join(''),
-            domain: amalDomain.split('').map(function(c) { return '&#' + c.charCodeAt(0) + ';'; }).join('')
-        };
-        $('.info-email-user1').attr('href', 'mailto:' + amalEmail)
-                             .html(amalEncoded.user + '&#64;' + amalEncoded.domain);
-
-        var abhijithUser = "abhijith";
-        var abhijithDomain = "cinezapiens.com";
-        var abhijithEmail = abhijithUser + "@" + abhijithDomain;
-        var abhijithEncoded = {
-            user: abhijithUser.split('').map(function(c) { return '&#' + c.charCodeAt(0) + ';'; }).join(''),
-            domain: abhijithDomain.split('').map(function(c) { return '&#' + c.charCodeAt(0) + ';'; }).join('')
-        };
-        $('.info-email-user2').attr('href', 'mailto:' + abhijithEmail)
-                                .html(abhijithEncoded.user + '&#64;' + abhijithEncoded.domain);
-    });*/
 })(jQuery);
