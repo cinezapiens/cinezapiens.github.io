@@ -9,7 +9,7 @@
     
     var cfg = {
         scrollDuration : 800, // smoothscroll duration
-        mailChimpURL   : 'https://facebook.us8.list-manage.com/subscribe/post?u=cdb7b577e41181934ed6a6a44&amp;id=e6957d85dc'   // mailchimp url
+        mailChimpURL   : 'https://cinezapiens.us9.list-manage.com/subscribe/post?u=8e15b88dca0e0c502faa92e4f&amp;id=425d4b01c1&amp;f_id=00dfc2e1f0'   // mailchimp url
     },
 
     $WIN = $(window);
@@ -89,8 +89,8 @@
     * ------------------------------------------------------ */
     var ssFinalCountdown = function() {
 
-        var finalDate =  new Date("March 25, 2025 15:37:25").getTime();
-        //-date: "Mar 25 2025",
+        var finalDate =  new Date("January 01, 2025 00:00:00").getTime();
+        //-date: "Jan 01 2025",
 
         $('.home-content__clock').countdown(finalDate)
         .on('update.countdown finish.countdown', function(event) {
@@ -158,4 +158,60 @@
     })();
 
 
+
+   /* Gform
+    * ------------------------------------------------------ */
+
+    var submitted = false;
+    
+    $('#gform').on('submit', function(e) {
+        $('#gform *').fadeOut(2000);
+        $('#gform').prepend('Your submission has been processed...');
+    });
+
+   /* Mail Protection
+    * ------------------------------------------------------ */
+	
+    // Function to decode HTML entities
+    var decodeHtmlEntities = function(encodedStr) {
+        return $('<textarea/>').html(encodedStr).text();
+    }; 
+	
+    $(document).ready(function() {
+        var email_amal_username = "&#97;&#109;&#97;&#108;";
+        var email_abhi_username = "&#97;&#98;&#104;&#105;&#106;&#105;&#116;&#104;";
+        var domain = "&#99;&#105;&#110;&#101;&#122;&#97;&#112;&#105;&#101;&#110;&#115;&#46;&#99;&#111;&#109;";
+        
+        // Decode each part
+        var email_amal = decodeHtmlEntities(email_amal_username) + "@" + decodeHtmlEntities(domain);
+        var email_abhi = decodeHtmlEntities(email_abhi_username) + "@" + decodeHtmlEntities(domain);
+		
+        $('.info-email-amal').attr('href', 'mailto:' + email_amal).html(email_amal_username + "@" + domain);
+        $('.info-email-abhi').attr('href', 'mailto:' + email_abhi).html(email_abhi_username + "@" + domain);
+    });
+
+
+
+
+    /*$(document).ready(function() {
+        var amalUser = "amal";
+        var amalDomain = "cinezapiens.com";
+        var amalEmail = amalUser + "@" + amalDomain;
+        var amalEncoded = {
+            user: amalUser.split('').map(function(c) { return '&#' + c.charCodeAt(0) + ';'; }).join(''),
+            domain: amalDomain.split('').map(function(c) { return '&#' + c.charCodeAt(0) + ';'; }).join('')
+        };
+        $('.info-email-user1').attr('href', 'mailto:' + amalEmail)
+                             .html(amalEncoded.user + '&#64;' + amalEncoded.domain);
+
+        var abhijithUser = "abhijith";
+        var abhijithDomain = "cinezapiens.com";
+        var abhijithEmail = abhijithUser + "@" + abhijithDomain;
+        var abhijithEncoded = {
+            user: abhijithUser.split('').map(function(c) { return '&#' + c.charCodeAt(0) + ';'; }).join(''),
+            domain: abhijithDomain.split('').map(function(c) { return '&#' + c.charCodeAt(0) + ';'; }).join('')
+        };
+        $('.info-email-user2').attr('href', 'mailto:' + abhijithEmail)
+                                .html(abhijithEncoded.user + '&#64;' + abhijithEncoded.domain);
+    });*/
 })(jQuery);
